@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MainContentComponent } from './main-content/main-content.component';
+import { LoginComponent } from './login/login.component';
 import { VideoBackgroundComponent } from './video-background/video-background.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 // import { LoginComponent } from './login/login.component';
@@ -16,6 +17,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     MainContentComponent,
     VideoBackgroundComponent,
     SlickCarouselModule,
+    LoginComponent,
   ],
   templateUrl: './app.component.html',
   styleUrls: [],
