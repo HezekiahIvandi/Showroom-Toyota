@@ -1,9 +1,172 @@
-<style></style>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login and Signup</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
 
-<main class="main">
-  <app-navbar></app-navbar>
-  <app-main-content></app-main-content>
-  <!-- <app-video-background></app-video-background> -->
-</main>
+  <body class="bg-gray-100 h-screen flex flex-col items-center justify-center">
+    <div class="bg-white p-8 rounded shadow-md w-96">
+      <div id="login" class="mb-4">
+        <h2 class="text-2xl font-bold mb-4">Login</h2>
+        <form id="loginForm">
+          <div class="mb-4">
+            <label
+              for="loginUsername"
+              class="block text-sm font-medium text-gray-600"
+              >Username</label
+            >
+            <input
+              type="text"
+              id="loginUsername"
+              name="loginUsername"
+              class="mt-1 p-2 w-full border rounded-md"
+            />
+          </div>
 
-<router-outlet></router-outlet>
+          <div class="mb-4">
+            <label
+              for="loginPassword"
+              class="block text-sm font-medium text-gray-600"
+              >Password</label
+            >
+            <input
+              type="password"
+              id="loginPassword"
+              name="loginPassword"
+              class="mt-1 p-2 w-full border rounded-md"
+            />
+          </div>
+
+          <button
+            type="submit"
+            class="bg-blue-500 text-white p-2 rounded-md w-full"
+          >
+            Login
+          </button>
+          <div id="loginStatus" class="mt-2 text-red-500"></div>
+        </form>
+      </div>
+
+      <div id="createAccount" class="hidden">
+        <h2 class="text-2xl font-bold mb-4">Create Account</h2>
+        <form id="signupForm">
+          <div class="mb-4">
+            <label
+              for="signupUsername"
+              class="block text-sm font-medium text-gray-600"
+              >Username</label
+            >
+            <input
+              type="text"
+              id="signupUsername"
+              name="signupUsername"
+              class="mt-1 p-2 w-full border rounded-md"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label
+              for="signupPassword"
+              class="block text-sm font-medium text-gray-600"
+              >Password</label
+            >
+            <input
+              type="password"
+              id="signupPassword"
+              name="signupPassword"
+              class="mt-1 p-2 w-full border rounded-md"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label
+              for="confirmPassword"
+              class="block text-sm font-medium text-gray-600"
+              >Confirm Password</label
+            >
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              class="mt-1 p-2 w-full border rounded-md"
+            />
+            <p id="passwordMismatch" class="text-red-500 hidden mt-2">
+              Passwords do not match
+            </p>
+          </div>
+
+          <button
+            type="submit"
+            id="signupButton"
+            class="bg-green-500 text-white p-2 rounded-md w-full"
+          >
+            Create Account
+          </button>
+        </form>
+      </div>
+
+      <button id="toggleButton" class="text-blue-500">Create Account</button>
+
+      <script>
+        document
+          .getElementById("toggleButton")
+          .addEventListener("click", function () {
+            document.getElementById("login").classList.toggle("hidden");
+            document.getElementById("createAccount").classList.toggle("hidden");
+            document.getElementById("passwordMismatch").classList.add("hidden");
+            document.getElementById("loginStatus").innerText = "";
+          });
+
+        document
+          .getElementById("signupForm")
+          .addEventListener("submit", function (event) {
+            var username = document.getElementById("signupUsername").value;
+            var password = document.getElementById("signupPassword").value;
+            var confirmPassword =
+              document.getElementById("confirmPassword").value;
+            var passwordMismatchElement =
+              document.getElementById("passwordMismatch");
+
+            if (password !== confirmPassword) {
+              passwordMismatchElement.classList.remove("hidden");
+              event.preventDefault();
+            } else {
+              // Store data in localStorage
+              localStorage.setItem("username", username);
+              localStorage.setItem("password", password);
+              passwordMismatchElement.classList.add("hidden");
+            }
+          });
+
+        document
+          .getElementById("loginForm")
+          .addEventListener("submit", function (event) {
+            var storedUsername = localStorage.getItem("username");
+            var storedPassword = localStorage.getItem("password");
+            var enteredUsername =
+              document.getElementById("loginUsername").value;
+            var enteredPassword =
+              document.getElementById("loginPassword").value;
+
+            if (
+              enteredUsername === storedUsername &&
+              enteredPassword === storedPassword
+            ) {
+              document.getElementById("loginStatus").innerText =
+                "Login successful!";
+            } else {
+              document.getElementById("loginStatus").innerText =
+                "Login failed. Please check your username and password.";
+              event.preventDefault();
+            }
+          });
+      </script>
+    </div>
+  </body>
+</html>
