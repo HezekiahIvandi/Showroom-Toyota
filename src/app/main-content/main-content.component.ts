@@ -1,11 +1,7 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 @Component({
   selector: 'app-main-content',
-  standalone: true,
-  imports: [CommonModule, SlickCarouselModule],
   templateUrl: './main-content.component.html',
   styleUrl: './main-content.component.css',
 })

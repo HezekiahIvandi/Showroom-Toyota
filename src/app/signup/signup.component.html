@@ -1,0 +1,59 @@
+<div class="bg-gray-100 h-screen flex flex-col items-center justify-center">
+  <div class="bg-white p-8 rounded shadow-md w-96">
+    <div id="signup" class="mb-4">
+      <h2 class="text-2xl font-bold mb-4">Create Account</h2>
+      <form id="signupForm">
+        <div class="mb-4">
+          <label
+            for="signupUsername"
+            class="block text-sm font-medium text-gray-600"
+            >Username</label
+          >
+          <input
+            type="text"
+            id="signupUsername"
+            name="signupUsername"
+            class="mt-1 p-2 w-full border rounded-md"
+          />
+        </div>
+
+        <div class="mb-4">
+          <label
+            for="signupPassword"
+            class="block text-sm font-medium text-gray-600"
+            >Password</label
+          >
+          <input
+            type="password"
+            id="signupPassword"
+            name="signupPassword"
+            class="mt-1 p-2 w-full border rounded-md"
+          />
+        </div>
+        <div class="mb-4">
+          <label
+            for="confirmPassword"
+            class="block text-sm font-medium text-gray-600"
+            >Confirm Password</label
+          >
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            class="mt-1 p-2 w-full border rounded-md"
+          />
+          <p id="passwordMismatch" class="text-red-500 hidden mt-2">
+            Passwords do not match
+          </p>
+        </div>
+
+        <button
+          type="submit"
+          class="bg-blue-500 text-white p-2 rounded-md w-full"
+        >
+          Sign Up
+        </button>
+        <div id="signupStatus" class="mt-2 text-red-500"></div>
+      </form>
+    </div>
+    <button id="toggleButton" class="text-blue-500" routerLink="/login">Login</button>

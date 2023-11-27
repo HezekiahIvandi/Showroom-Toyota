@@ -1,24 +1,14 @@
-<nav class="flex justify-between px-5 py-3 bg-transparent">
-  <div><img class="w-12" src="../../assets/img/toyotaLogo.png" alt="" /></div>
-  <div class="md:flex justify-between w-[10rem] hidden">
-    <h1>Tipe 1</h1>
-    <h1>Tipe 2</h1>
-    <h1>Tipe 3</h1>
+<nav class="flex justify-between px-6 py-3 bg-transparent hover:bg-white transition-colors duration-500 ease-in-out text-white hover:text-black font-bold font-sans text-lg">
+  <div class="flex w-[9rem] justify-between items-start cursor-pointer">
+    <img class="w-14" src="../../assets/img/toyotaLogo.png" alt="" />
+    <a routerLink="/main">TOYOTA</a>
   </div>
-  <div class="flex justify-between w-[15rem]">
-    <div>
-      <button
-        class="bg-slate-400 hover:bg-slate-500 text-white font-semibold py-2 px-3 rounded mr-1 justify-center"
-      >
-        Sign up
-      </button>
-      <button
-        class="bg-slate-400 hover:bg-slate-500 text-white font-semibold py-2 px-3 rounded"
-      >
-        Sign up
-      </button>
-    </div>
-
-    <h1>1</h1>
+  <div class="flex justify-between w-[16rem] items-start cursor-pointer">
+    <a>Tipe 1</a>
+    <a>Tipe 2</a>
+    <a>Tipe 3</a>
+  </div>
+  <div class="flex justify-end w-[9rem] items-start">
+    <a routerLink="/login"><button>Login</button></a>
   </div>
 </nav>
