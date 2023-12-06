@@ -1,3 +1,19 @@
+<nav class="flex justify-between px-6 py-3 bg-transparent hover:bg-white transition-colors duration-500 ease-in-out text-white font-bold font-sans text-lg">
+  <div class="flex w-[9rem] justify-between items-start cursor-pointer mix-blend-difference">
+    <img class="w-14" src="../../assets/img/Toyota_EU.svg.png" alt="" />
+    <a routerLink="/main">TOYOTA</a>
+  </div>
+  <div class="flex justify-between w-[22rem] items-start cursor-pointer mix-blend-difference">
+    <a (click)="switchVideos(0)">Fortuner</a>
+    <a (click)="switchVideos(1)">Raize</a>
+    <a (click)="switchVideos(2)">Sienta</a>
+    <a (click)="switchVideos(3)">Camry</a>
+  </div>
+  <div class="flex justify-end w-[9rem] items-start mix-blend-difference">
+    <a routerLink="/login"><button class="w-8"><img src="../../assets/img/profile.png"></button></a>
+  </div>
+</nav>
+
 <div class="image-container">
   <ngx-slick-carousel
     class="carousel"
@@ -15,6 +31,8 @@
   .slide video {
     width: 100%;
     height: 100vh;
+    position: relative;
+    object-fit: cover;
   }
   .image-container {
     position: fixed;
@@ -26,10 +44,4 @@
     overflow: hidden;
     z-index: -999;
   }
-  /* 
-  .image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  } */
 </style>

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { SlickCarouselComponent } from 'ngx-slick-carousel';
 
 @Component({
   selector: 'app-main-content',
@@ -6,12 +7,18 @@ import { Component } from '@angular/core';
   styleUrl: './main-content.component.css',
 })
 export class MainContentComponent {
+  @ViewChild('slickModal') slickModal!: SlickCarouselComponent;
+
   slides = [
     {video: '../../assets/video/fortuner.mp4'},
     {video: '../../assets/video/raize.mp4'},
     {video: '../../assets/video/sienta.mp4'},
     {video: '../../assets/video/camry.mp4'},
   ];
+  
+  switchVideos(number: number) {
+    this.slickModal.slickGoTo(number);
+  }
 
   slideConfig = {
     vertical: true,
