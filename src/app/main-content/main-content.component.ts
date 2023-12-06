@@ -7,10 +7,14 @@ import { Component } from '@angular/core';
 })
 export class MainContentComponent {
   slides = [
-    { img: '../../assets/img/slide-images/1.jpg' },
-    { img: '../../assets/img/slide-images/2.jpg' },
-    { img: '../../assets/img/slide-images/4.jpg' },
-    { img: '../../assets/img/slide-images/5.jpg' },
+    // { img: '../../assets/img/slide-images/1.jpg' },
+    // { img: '../../assets/img/slide-images/2.jpg' },
+    // { img: '../../assets/img/slide-images/4.jpg' },
+    // { img: '../../assets/img/slide-images/5.jpg' },
+    { url: '../../assets/video/camry.mp4' },
+    { url: '../../assets/video/fortuner.mp4' },
+    { url: '../../assets/video/sienta.mp4' },
+    { url: '../../assets/video/raize.mp4' },
   ];
 
   slideConfig = {
