@@ -7,10 +7,10 @@ import { Component } from '@angular/core';
 })
 export class MainContentComponent {
   slides = [
-    { img: '../../assets/img/slide-images/1.jpg' },
-    { img: '../../assets/img/slide-images/2.jpg' },
-    { img: '../../assets/img/slide-images/4.jpg' },
-    { img: '../../assets/img/slide-images/5.jpg' },
+    {video: '../../assets/video/fortuner.mp4'},
+    {video: '../../assets/video/raize.mp4'},
+    {video: '../../assets/video/sienta.mp4'},
+    {video: '../../assets/video/camry.mp4'},
   ];
 
   slideConfig = {
@@ -20,13 +20,14 @@ export class MainContentComponent {
     slidesToScroll: 1,
     autoplay: false,
     arrows: true,
+    infinite: false,
 
     responsive: [
       {
         breakpoint: 992,
         settings: {
           arrows: true,
-          infinite: true,
+          infinite: false,
           slidesToShow: 1,
           slidesToScroll: 1,
         },
@@ -35,7 +36,7 @@ export class MainContentComponent {
         breakpoint: 768,
         settings: {
           arrows: true,
-          infinite: true,
+          infinite: false,
           slidesToShow: 1,
           slidesToScroll: 1,
         },
