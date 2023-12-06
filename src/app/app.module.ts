@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavbarComponent } from './navbar/navbar.component';
 import { MainContentComponent } from './main-content/main-content.component';
 import { LoginComponent } from './login/login.component';
-import { VideoBackgroundComponent } from './video-background/video-background.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -20,10 +18,8 @@ import { FooterComponent } from './footer/footer.component';
   ],
   declarations: [
     AppComponent,
-    NavbarComponent,
     MainContentComponent,
     LoginComponent,
-    VideoBackgroundComponent,
     SignupComponent,
     FooterComponent
   ],
