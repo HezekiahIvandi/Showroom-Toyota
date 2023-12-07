@@ -1,10 +1,35 @@
+<nav
+  class="flex justify-between px-6 py-3 bg-transparent hover:bg-white transition-colors duration-500 ease-in-out text-white font-bold font-sans text-lg"
+>
+  <div
+    class="flex w-[9rem] justify-between items-start cursor-pointer mix-blend-difference"
+  >
+    <img class="w-14" src="../../assets/img/Toyota_EU.svg.png" alt="" />
+    <a routerLink="/main">TOYOTA</a>
+  </div>
+  <div
+    class="flex justify-between w-[22rem] items-start cursor-pointer mix-blend-difference"
+  >
+    <a (click)="switchVideos(0)">Fortuner</a>
+    <a (click)="switchVideos(1)">Raize</a>
+    <a (click)="switchVideos(2)">Sienta</a>
+    <a (click)="switchVideos(3)">Camry</a>
+  </div>
+  <div class="flex justify-end w-[9rem] items-start mix-blend-difference">
+    <a routerLink="/login"
+      ><button class="w-8"><img src="../../assets/img/profile.png" /></button
+    ></a>
+  </div>
+</nav>
+
 <div class="image-container">
   <ngx-slick-carousel
     class="carousel"
     #slickModal="slick-carousel"
     [config]="slideConfig"
+    (afterChange)="onSlideChange($event)"
   >
-    <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+    <div ngxSlickItem *ngFor="let slide of slides; let i = index" class="slide">
       <div class="content-container">
         <video
           loop
@@ -18,22 +43,42 @@
           <source src="{{ slide.video }}" type="video/mp4" />
         </video>
         <div class="spec">
-          <div>
-            <h1 class="text-center">FORTUNER</h1>
-            <h2>Starting at 300 Million IDR</h2>
+          <div *ngIf="!showMe[i]" [@fadeInOut]>
+            <h1 class="text-center">{{ slide.model }}</h1>
+            <h3>{{ slide.price }}</h3>
           </div>
 
           <button
-            class="bg-gray-800 text-white rounded-full p-4 hover:bg-gray-700 focus:outline-none focus:ring focus:border-blue-300 transition"
-            (click)="toggleSpec()"
+            class="hover:animate-none p-2 border-solid border-2 mt-5 animate-pulse rounded-full bg-gray-100 justify-center items-center shadow-md"
+            (click)="toggleSpec(i)"
           >
-            &#8595;
+            <img class="w-[2rem]" src="../../assets/img/arrowDown.png" alt="" />
           </button>
 
-          <div class="specification" *ngIf="showMe">
-            <p>Model: X</p>
-            <p>Year: X</p>
-            <p>Color: X</p>
+          <div
+            *ngIf="showMe[i]"
+            [@fadeInOut]
+            class="specification text-white p-4 rounded-md"
+          >
+            <!--jbBakar: 'Diesel',
+            capacity: '2393 cc',
+            tenaga: '148 hp',
+            girboks: '6-Speed',
+            jTransmisi: 'Manual', -->
+            <div class="flex">
+              <div>
+                <p class="mb-2">{{ slide.jbBakar }}</p>
+                <p class="mb-2">{{ slide.capacity }}</p>
+              </div>
+              <div class="ml-5">
+                <p class="mb-2">{{ slide.tenaga }}</p>
+                <p class="mb-2">{{ slide.girboks }}</p>
+              </div>
+            </div>
+
+            <div>
+              <p class="mb-2">{{ slide.jTransmisi }}</p>
+            </div>
             <!-- Add more specifications as needed -->
           </div>
         </div>
@@ -43,6 +88,20 @@
 </div>
 
 <style>
+  p {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  h1 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  h3 {
+    font-size: 15px;
+    font-weight: 500;
+  }
+
   .slide .content-container {
     position: relative;
   }
@@ -64,7 +123,6 @@
   }
 
   .specification {
-    background-color: rgba(0, 0, 0, 0.7);
     padding: 10px;
     border-radius: 5px;
     margin-top: 10px;
