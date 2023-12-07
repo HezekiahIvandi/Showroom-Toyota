@@ -43,7 +43,7 @@
           <source src="{{ slide.video }}" type="video/mp4" />
         </video>
         <div class="spec">
-          <div *ngIf="!showMe[i]" [@fadeInOut]>
+          <div *ngIf="!showMe[i]">
             <h1 class="text-center">{{ slide.model }}</h1>
             <h3>{{ slide.price }}</h3>
           </div>
@@ -57,7 +57,6 @@
 
           <div
             *ngIf="showMe[i]"
-            [@fadeInOut]
             class="specification text-white p-4 rounded-md"
           >
             <!--jbBakar: 'Diesel',
@@ -93,12 +92,12 @@
     font-weight: 600;
   }
   h1 {
-    font-size: 20px;
+    font-size: 40px;
     font-weight: bold;
   }
 
   h3 {
-    font-size: 15px;
+    font-size: 35px;
     font-weight: 500;
   }
 
