@@ -8,6 +8,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { SignupComponent } from './signup/signup.component';
 import { FooterComponent } from './footer/footer.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
@@ -15,14 +16,15 @@ import { FooterComponent } from './footer/footer.component';
     SlickCarouselModule,
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
   ],
   declarations: [
     AppComponent,
     MainContentComponent,
     LoginComponent,
     SignupComponent,
-    FooterComponent
+    FooterComponent,
   ],
-  bootstrap: [ AppComponent ]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
