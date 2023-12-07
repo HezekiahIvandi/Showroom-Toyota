@@ -5,25 +5,76 @@
     [config]="slideConfig"
   >
     <div ngxSlickItem *ngFor="let slide of slides" class="slide">
-      <video
-        loop
-        autoplay
-        muted
-        playsinline
-        #video
-        (canplay)="video.play()"
-        (loadedmetadata)="video.muted = true"
-      >
-        <source src="{{ slide.video }}" type="video/mp4" />
-      </video>
+      <div class="content-container">
+        <video
+          loop
+          autoplay
+          muted
+          playsinline
+          #video
+          (canplay)="video.play()"
+          (loadedmetadata)="video.muted = true"
+        >
+          <source src="{{ slide.video }}" type="video/mp4" />
+        </video>
+        <div class="spec">
+          <div>
+            <h1 class="text-center">FORTUNER</h1>
+            <h2>Starting at 300 Million IDR</h2>
+          </div>
+
+          <button
+            class="bg-gray-800 text-white rounded-full p-4 hover:bg-gray-700 focus:outline-none focus:ring focus:border-blue-300 transition"
+            (click)="toggleSpec()"
+          >
+            &#8595;
+          </button>
+
+          <div class="specification" *ngIf="showMe">
+            <p>Model: X</p>
+            <p>Year: X</p>
+            <p>Color: X</p>
+            <!-- Add more specifications as needed -->
+          </div>
+        </div>
+      </div>
     </div>
   </ngx-slick-carousel>
 </div>
+
 <style>
+  .slide .content-container {
+    position: relative;
+  }
+
   .slide video {
     width: 100%;
     height: 100vh;
+    position: relative;
+    object-fit: cover;
   }
+
+  .spec {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+  }
+
+  .specification {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+
+  .specification p {
+    margin: 5px 0;
+    color: white;
+  }
+
   .image-container {
     position: fixed;
     top: 0;
@@ -34,10 +85,4 @@
     overflow: hidden;
     z-index: -999;
   }
-  /* 
-  .image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  } */
 </style>

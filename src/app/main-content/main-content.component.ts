@@ -6,11 +6,16 @@ import { Component } from '@angular/core';
   styleUrl: './main-content.component.css',
 })
 export class MainContentComponent {
+  showMe: boolean = false;
+  toggleSpec() {
+    this.showMe = !this.showMe;
+  }
   slides = [
     { video: '../../assets/video/fortuner.mp4' },
-    { video: '../../assets/video/raize.mp4' },
+
     { video: '../../assets/video/sienta.mp4' },
     { video: '../../assets/video/camry.mp4' },
+    { video: '../../assets/video/raize.mp4' },
   ];
 
   slideConfig = {
